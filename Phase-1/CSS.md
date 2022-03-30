@@ -61,4 +61,12 @@
 }
 ```
 - Combinators: nested elements, child, parent, sibling, etc.
+- The main difference between id and class is that id is used for just one element and class can be used multiple times.
+## Colors
+- 140 named colors.
+- Use rgb(0,0,0).
+- Use hex #000000.
+- Use rgba (0,0,0,1). Let's adjust transparency
+- Use hsl (5, %, %). Hue Saturation Light
+- You can use a color picker tool.
 

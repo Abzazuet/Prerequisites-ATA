@@ -3,7 +3,11 @@
 }
 .center-text {
   text-align: center;
+  color: hsl(49, 42%, 21%);
 }
 .table-background{
-    background-color: rgb(58, 173, 102);
+    background-color: rgba(58, 173, 102, .7);
+}
+p {
+    color: #000;
 }

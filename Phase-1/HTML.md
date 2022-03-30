@@ -74,3 +74,4 @@
 3. `<th></th>`: Table Header. Specifies the name of the header
 4. `<td></td>`: Table Data. Table cells.
 3. `</table>`: end table
+- Main difference between th and td is that th bolds the element and td doesn't.
