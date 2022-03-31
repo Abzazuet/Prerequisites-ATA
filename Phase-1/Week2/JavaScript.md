@@ -61,3 +61,25 @@ let y = square (4);
 ## Conditional Execution
 
 - `if (true_condition){statement}; else{statement}`
+
+## Finding bugs
+
+- Observe the phenomenon
+- Ask the question
+- Gather information and apply expert knowledge (repetivive)
+
+  - Print statements
+  - Debbuging tools
+  - Execute code by hand
+  -
+
+- Form hypothesis: make a statement about the behavior
+
+  - Testable: prediction about behavior
+  - Actionable: can fix program if true
+  - Specific
+  
+- Test hypothesis -> reject hypothesis -> gather info
+- Accept hypothesis
+- It is not recommended to ad hoc changes. "Maybe if I just change ..." does not work. It's better to follow the scientific method.
+
