@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>TO DO List</h1>
+    <div class="add-task-container">
+        <input id="addTask" value="Add" type="button" onclick="addTask()"/>
+        <input id="taskInput" type="text" value="" placeholder="Enter new task..."/>
+    </div>
+    <div id ="tasksContainer"class="tasks-container">
+
+    </div>
+    <div class="footer-buttons">
+        <input id = "about" type="button" value="About" onclick="displayInfo()" />
+        <input id = "clear" type="button" value="Clear" onclick="clearTasks()" />
+    </div>
+    <div id ="authorInfo" class="author-info">
+        
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

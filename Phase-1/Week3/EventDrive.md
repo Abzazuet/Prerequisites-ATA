@@ -15,5 +15,6 @@
 
 ## Accesing HTML elements with JS
 
-- We usually acces element by id.
-
+- We usually access element by id.
+- .className to add a class.
+- .innerHTML to access the text within that element

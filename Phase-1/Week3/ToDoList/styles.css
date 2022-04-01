@@ -1,0 +1,52 @@
+.add-task-container{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    gap: 3px;
+}
+.task-container{
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    height: 30px;
+    gap: 3px;
+    align-items: center;
+    background-color: grey;
+}
+.done, .remove, .important{
+    width: 20px;
+    height: 20px;
+    border: none;
+}.done:hover, .remove:hover, .important:hover{
+    background-color: aliceblue;
+}
+.done {
+    background-color: green;
+}
+.remove {
+    background-color: red;
+}
+.important {
+    background-color: yellow;
+}
+.important-task{
+    display: flex;
+    flex-direction: row;
+    width: 250px    ;
+    height: 30px;
+    gap: 3px;
+    align-items: center;
+    background-color: rgb(112, 130, 189);
+}
+.finished {
+    display: flex;
+    flex-direction: row;
+    width: 250px    ;
+    height: 30px;
+    gap: 3px;
+    align-items: center;
+    background-color: rgb(112, 130, 189);
+}
+.finished .task{
+    text-decoration: line-through;
+}
