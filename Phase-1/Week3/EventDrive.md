@@ -18,3 +18,15 @@
 - We usually access element by id.
 - .className to add a class.
 - .innerHTML to access the text within that element
+
+## Canvas
+
+- Use to store images
+- Special methods need to be used to put text in a canvas
+- A container for graphics
+- You need to get the context from the canvas to modify it in JS.
+- `variable.getContext("id")`
+- .fillStyle="Color"
+- .fillRect(x, y, w, h)
+- .font = "90px Arial";
+- .fillText("Text", x, y)

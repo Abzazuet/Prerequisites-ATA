@@ -2,15 +2,21 @@ div {
     height: 5rem;
     width: 15rem;
 }
-.background-1 {
-  background-color: aqua;
-}
-.background-2 {
-  background-color: red;
-}
 .blueback {
     background-color: rgb(35, 35, 59);
 }
 .yellowback {
     background-color: rgb(107, 107, 1);
+}
+.redback {
+  background-color: red;
+}
+canvas {
+  width: 200pt;
+  height: 100pt;
+  margin: 10px;
+  border: 1px solid lightgray;
+}
+input{
+  font-size: 20pt;
 }
