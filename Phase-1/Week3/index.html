@@ -10,13 +10,16 @@
 </head>
 
 <body>
-    <h1 id="t1">Canvas Practice</h2>
-    <canvas id = "div1" class="blueback"></canvas>
-    <canvas id = "div2" class="yellowback"></canvas>
+    <h1 id="t1">Canvas Practice</h1>
+    <canvas id="div1"></canvas>
     <input id="red" type="button" value="Change red" onclick="doRed()">
     <input id="blue" type="button" value="Change blue" onclick="doBlue()">
 
-
+    <h1 id="t2">Color Picker</h1>
+    <canvas id="div2"></canvas>
+    <input id="green" type="button" value="Change green" onclick="doGreen()">
+    <input id="pickColor" type="color" value="Pick Color" onchange="pickColor()">
+    <input id="slider" min="0" max="100" value="0" type="range" oninput="doSquare()">
     <script src="index.js"></script>
 </body>
 

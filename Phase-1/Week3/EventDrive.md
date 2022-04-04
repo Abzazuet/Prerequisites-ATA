@@ -30,3 +30,11 @@
 - .fillRect(x, y, w, h)
 - .font = "90px Arial";
 - .fillText("Text", x, y)
+
+## Input and Events
+
+- Input is used to create an HTML that takes an element from a user.
+- `input type ="color" onchange=function()`.
+- oninput
+- onchange
+- onclick

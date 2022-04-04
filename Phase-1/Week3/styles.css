@@ -1,15 +1,6 @@
 div {
-    height: 5rem;
-    width: 15rem;
-}
-.blueback {
-    background-color: rgb(35, 35, 59);
-}
-.yellowback {
-    background-color: rgb(107, 107, 1);
-}
-.redback {
-  background-color: red;
+  height: 5rem;
+  width: 15rem;
 }
 canvas {
   width: 200pt;
@@ -17,6 +8,6 @@ canvas {
   margin: 10px;
   border: 1px solid lightgray;
 }
-input{
+input {
   font-size: 20pt;
 }
