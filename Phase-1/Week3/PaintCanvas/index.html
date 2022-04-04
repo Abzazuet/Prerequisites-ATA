@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Paint your own canvas</h1>
+    <div id="size-container">
+        <label for="width">Set Width</label>
+        <input id = "width" type="text" class="input" value="0" onchange="setWidth()">
+        <label for="height">Set Height</label>
+        <input id = "height" type="text" class="input" value="0" onchange="setHeight()">
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="brushOptions">
+        <label for="colorPicker">Brush Color</label>
+        <input id="colorPicker"type="color" onchange="changeColor()">
+        <label for="brushSize"></label>
+        <input id="brushSize" type="range" min="0" max="10" value = "0" oninput="changeBrushSize()">
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
