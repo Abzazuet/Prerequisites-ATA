@@ -35,6 +35,13 @@
 
 - Input is used to create an HTML that takes an element from a user.
 - `input type ="color" onchange=function()`.
-- oninput
-- onchange
-- onclick
+- Input elements(type=): 
+
+    1. Button
+    2. Color
+    3. Range
+- Event types:
+
+    1. oninput
+    2. onchange
+    3. onclick
