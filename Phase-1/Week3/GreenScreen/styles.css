@@ -1,0 +1,21 @@
+canvas {
+  height: 200px;
+  border: 1px solid black;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+input[type="button"] {
+  width: 150px;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  gap: 5px;
+}
+.horizontal {
+  flex-direction: row;
+}
