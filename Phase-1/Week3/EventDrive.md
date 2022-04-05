@@ -31,17 +31,32 @@
 - .font = "90px Arial";
 - .fillText("Text", x, y)
 
-## Input and Events
+## Input
 
-- Input is used to create an HTML that takes an element from a user.
-- `input type ="color" onchange=function()`.
-- Input elements(type=): 
+- There're plenty types of input, which help us accomplish different things, but there main prupose is to take some sort of input from the user.
 
-    1. Button
-    2. Color
-    3. Range
-- Event types:
+  1. text
+  2. password
+  3. submit: used in a form to submit all the fields.
+  4. reset: used in a form to reset all the fields.
+  5. radio: they let users select only one option of n options.
+  6. checkbox: they let the users selecto zero or more options.
+  7. button
+  8. color
+  9. date
+  10. email
+  11. file: defines a file-select and a browse button
+  12. hidden: defines a hidden input which cannot be seen by users.
+  13. number
+  14. range: defines a control for entering a number whose exact value is not important
+  15. search: regilar text field
+  16. tel
 
-    1. oninput
-    2. onchange
-    3. onclick
+## Event
+
+- They let events trigger actions in a browser.
+
+### Window Event
+
+![data](images/windowEvent.png)
+
