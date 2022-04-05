@@ -13,17 +13,21 @@
     <h1>Paint your own canvas</h1>
     <div id="size-container">
         <label for="width">Set Width</label>
-        <input id = "width" type="text" class="input" value="0" onchange="setWidth()">
+        <input id="width" type="number" class="input" value="0" onchange="setWidth()">
         <label for="height">Set Height</label>
-        <input id = "height" type="text" class="input" value="0" onchange="setHeight()">
+        <input id="height" type="number" class="input" value="0" onchange="setHeight()">
     </div>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" onmousedown="startPaint()" onmouseup="endPaint()"
+        onmousemove="doPaint(event.offsetX, event.offsetY)"></canvas>
     <div id="brushOptions">
         <label for="colorPicker">Brush Color</label>
-        <input id="colorPicker"type="color" onchange="changeColor()">
-        <label for="brushSize"></label>
-        <input id="brushSize" type="range" min="0" max="10" value = "0" oninput="changeBrushSize()">
+        <input id="colorPicker" type="color" onchange="changeColor()">
+        <label for="brushSize">Brush Size</label>
+        <input id="brushSize" type="range" min="1" max="55" value="1" oninput="changeBrushSize()">
+        <output id="sizeOutput"></output>
     </div>
+    <input id="clear" value="Clear Canvas" type="button" onclick="clearCanvas()">
+
     <script src="index.js"></script>
 </body>
 
