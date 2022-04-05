@@ -60,3 +60,26 @@
 
 ![data](images/windowEvent.png)
 
+### Form Events
+
+![data](images/formEvents.png)
+
+### Keboard Events
+
+![data](images/keyBoard.png)
+
+### Mouse Events
+
+![data](images/mouse.png)
+
+### Drag Events
+
+![data](images/drag.png)
+
+### Clipboard Events
+
+![data](images/clipBoard.png)
+
+### Media Events
+
+![data](images/mediaEvents.png)
