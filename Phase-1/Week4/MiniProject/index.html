@@ -10,18 +10,18 @@
 </head>
 
 <body>
-    <h1>Filter images</h1>
+    <h1>Choose image</h1>
     <div class="file-selection">
         <canvas id="canvas"></canvas>
         <input id="fInput" type="file" multiple="false" accept="image/*" onchange="uploadImage()">
         <p id="imageDimension"></p>
     </div>
     <div class="filters">
+        <h2>Choose filter</h2>
         <input id="greyScale" type="button" value="Greyscale" onclick="filterGrey()">
         <input id="red" type="button" value="Red" onclick="filterRed()">
         <input id="rainbow" type="button" value="Rainbow" onclick="filterRainbow()">
         <input id="resetImage" type="button" value="Reset" onclick="filterReset()">
-
     </div>
     <script src="cs101.js"></script>
     <script src="SimpleImage.js"></script>
