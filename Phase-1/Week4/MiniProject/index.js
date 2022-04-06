@@ -11,3 +11,15 @@ function changeImageDimension () {
     let height = image.height;
     console.log(width, height, image);
 }
+function filterGrey() {
+
+}
+function filterRed() {
+    
+}
+function filterRainbow() {
+    
+}
+function filterReset() {
+    
+}
