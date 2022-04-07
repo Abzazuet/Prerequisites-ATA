@@ -21,7 +21,7 @@ canvas {
   border: 1px solid #14213d;
 }
 .filters {
-  bottom: 9%;
+  bottom: 0;
   position: absolute;
   left: 40%;
   margin-bottom: 5px;
