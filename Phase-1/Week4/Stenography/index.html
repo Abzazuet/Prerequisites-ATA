@@ -6,10 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stenography</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
+    <h1>Stenography Project</h1>
+    <div class="canvases-container">
+        <div class="container">
+            <canvas id="image2show"></canvas>
+            <input type="file" id="original" multiple="false" accept="image/*" onchange="uploadImage2show()">
+        </div>
+        <div class="container">
+            <canvas id="image2hide"></canvas>
+            <input type="file" id="hidden" multiple="false" accept="image/*" onchange="uploadImage2hide()">
+        </div>
+        <div class="container">
+            <canvas id="output"></canvas>
+            <input type="button" value="Show combination" onclick="generateCombination()">
+        </div>
+    </div>
+    <script src="cs101.js"></script>
+    <script src="SimpleImage.js"></script>
     <script src="index.js"></script>
 </body>
 
