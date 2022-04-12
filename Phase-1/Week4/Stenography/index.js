@@ -24,23 +24,21 @@ function generateCombination() {
     for (let pixel of choppedImage.values()) {
         let x = pixel.getX();
         let y = pixel.getY();
-        if (x < 960) {
-            if (y < 1200) {
-                if (x > hiddenImage.getWidth() || y > hiddenImage.getHeight()) {
-                    output.setRed(x, y, pixel.getRed());
-                    output.setGreen(x, y, pixel.getGreen());
-                    output.setBlue(x, y, pixel.getBlue());
-                }
-                else {
-                    output.setRed(x, y, pixel.getRed() + hiddenImage.getRed(x, y));
-                    output.setGreen(x, y, pixel.getGreen() + hiddenImage.getGreen(x, y));
-                    output.setBlue(x, y, pixel.getBlue() + hiddenImage.getBlue(x, y));
-                }
+        if (x < hiddenImage.getWidth()) {
+            if (y < hiddenImage.getHeight()) {
+                output.setRed(x, y, pixel.getRed() + hiddenImage.getRed(x, y));
+                output.setGreen(x, y, pixel.getGreen() + hiddenImage.getGreen(x, y));
+                output.setBlue(x, y, pixel.getBlue() + hiddenImage.getBlue(x, y));
             }
         }
-
+        else {
+            output.setRed(x, y, pixel.getRed());
+            output.setGreen(x, y, pixel.getGreen());
+            output.setBlue(x, y, pixel.getBlue());
+        }
     }
     output.drawTo(can3);
+    return output;
 }
 function hideImage(image) {
     let width = image.getWidth();
@@ -67,4 +65,7 @@ function chop2hide(image) {
         choppedImage.setBlue(x, y, Math.floor(pixel.getBlue() / 16) * 16);
     }
     return choppedImage
+}
+function revealImage() {
+
 }
