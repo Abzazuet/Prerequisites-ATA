@@ -27,3 +27,6 @@ String x = s.substring(0, 4);
 - Look for more methods java string documentation.
 - https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 
+# Indefinitive loop 
+
+

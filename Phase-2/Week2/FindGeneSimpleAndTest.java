@@ -8,7 +8,7 @@ public class FindGeneSimpleAndTest {
         if (startIndex == -1) // No start codon
             return result;
         // look for stop codon TAA
-        int stopIndex = dna.indexOf("TAA");
+        int stopIndex = dna.indexOf("TAA", startIndex+3);
         if (stopIndex == -1) //No end codon
             return result;
         result = dna.substring(startIndex, stopIndex + 3);
@@ -17,7 +17,7 @@ public class FindGeneSimpleAndTest {
     }
 
     public void testGeneSimple() {
-        String dna = "ATGATATATTAA";
+        String dna = "ATGATATAT";
         String gene = findGeneSimple(dna);
         System.out.println("DNA STRAND: " + dna);
         System.out.println("Gene: " + gene);

@@ -9,7 +9,7 @@ class Part1 {
         if (startIndex == -1) // No start codon
             return result;
         // look for stop codon TAA
-        int stopIndex = dna.indexOf("TAA");
+        int stopIndex = dna.indexOf("TAA", startIndex+3);
         if (stopIndex == -1) // No end codon
             return result;
         result = dna.substring(startIndex, stopIndex + 3);
@@ -39,7 +39,7 @@ class Part2 {
         if (startIndex == -1) // No start codon
             return result;
         // look for stop codon TAA
-        int stopIndex = dna.indexOf(end);
+        int stopIndex = dna.indexOf(end, startIndex+3);
         if (stopIndex == -1) // No end codon
             return result;
         result = dna.substring(startIndex, stopIndex + 3);
