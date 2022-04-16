@@ -28,5 +28,18 @@ String x = s.substring(0, 4);
 - https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 
 # Indefinitive loop 
+```JAVA
+while (x<y){
+    statements;
+    x++;
+}
+```
+
+1. First Occurence of ATG and call its index, call it startIndex
+2. Find the TAA starting from start+3, call this result currIndex
+3. Check if curr-start is a multiple of3
+4. If not, update currIndex to the index of the next TAA starting from currIndex+1
+5. Check if currUbdex-start is a multiple of3
+6. If so, the text between start and curr will be our gene
 
 
