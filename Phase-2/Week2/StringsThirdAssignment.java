@@ -172,8 +172,9 @@ class Part3 {
 public class StringsThirdAssignment {
 
   public static void main(String[] args) {
+      /*
     Part1 testing1 = new Part1();
-    /*
+    
     testing1.testFindGene();
     Part2 testing2 = new Part2();
     testing2.cgTest();
