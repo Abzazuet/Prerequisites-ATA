@@ -27,7 +27,8 @@ String x = s.substring(0, 4);
 - Look for more methods java string documentation.
 - https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 
-# Indefinitive loop 
+# Indefinitive loop
+
 ```JAVA
 while (x<y){
     statements;
@@ -42,4 +43,15 @@ while (x<y){
 5. Check if currUbdex-start is a multiple of3
 6. If so, the text between start and curr will be our gene
 
+# Logical AND (&&) and Logical OR (||)
+
+- Help us evaluate more than one condition at the time.
+- AND indicates that both condition need to be true.
+- OR indicates that you just need one condition needs to be true.
+- It applies short circuit evaluation, very useful since the second statement might crash the program.
+
+# StorageResource
+
+- Holds a collection of strings
+- iterable through .data()
 
