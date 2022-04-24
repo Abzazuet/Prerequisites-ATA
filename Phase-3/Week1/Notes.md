@@ -31,4 +31,15 @@
 - Characters are declared using ''.
 - It has several methods.
 - Character.{toLowerCase(ch), isDigit(ch)}
-- 
+
+# Arrays
+
+- int[] a = new int[250].
+- a.length to show the length of a given array
+- indexed collection of values
+- String[] s = new String[12]
+
+# Random 
+
+- java.util.Random
+- Random variable = new Random()

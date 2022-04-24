@@ -1,4 +1,4 @@
-package Week1.duke_source.edu.duke;
+package edu.duke;
 
 import java.io.File;
 import java.util.ArrayList;
