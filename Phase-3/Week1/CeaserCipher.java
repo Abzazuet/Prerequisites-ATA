@@ -16,14 +16,30 @@ public class CeaserCipher {
         }
         return encrypted.toString();
     }
+    public String decrypt(String input, int key){
+        key = 26-key;
+        StringBuilder decrypted = new StringBuilder(input.toUpperCase());
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String shiftedAlphabet = alphabet.substring(key) + alphabet.substring(0, key);
+        for ( int i=0; i<decrypted.length(); i++){
+            char currChar = decrypted.charAt(i);
+            int idx = alphabet.indexOf(currChar);
+            if (idx !=-1){
+                char newChar = shiftedAlphabet.charAt(idx);
+                decrypted.setCharAt(i, newChar);
+            }
+
+        }
+        return decrypted.toString();
+    }
     public void testCaesar(){
         int key = 17;
         FileResource fr = new FileResource();
         String message = fr.asString();
-        String encrypted = encrypt(message, 26-key);
+        String encrypted = encrypt(message, key);
         System.out.println(encrypted);
         //TO decrypt just sustract key from 26
-        String decrypted = encrypt(encrypted, 26-key);
+        String decrypted = decrypt(encrypted, key);
         System.out.println(decrypted);
 
     }
