@@ -20,8 +20,9 @@ public class CeaserCipher {
         int key = 17;
         FileResource fr = new FileResource();
         String message = fr.asString();
-        String encrypted = encrypt(message, key);
+        String encrypted = encrypt(message, 26-key);
         System.out.println(encrypted);
+        //TO decrypt just sustract key from 26
         String decrypted = encrypt(encrypted, 26-key);
         System.out.println(decrypted);
 
