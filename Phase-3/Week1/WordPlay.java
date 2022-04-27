@@ -51,7 +51,7 @@ public class WordPlay {
         FileResource fr = new FileResource();
         String message = fr.asString();
         String encrypted = encrypt(
-                "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", key);
+                "Can you imagine life WITHOUT the internet AND computers in your pocket?", key);
         System.out.println(encrypted);
         String decrypted = encrypt(encrypted, 26 - key);
         System.out.println(decrypted);
@@ -59,8 +59,6 @@ public class WordPlay {
     }
 
     public String encryptTwoKeys(String input, int key1, int key2) {
-        key1 = 26-key1;
-        key2 = 26-key2;
         StringBuilder encrypted = new StringBuilder(input);
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerAlphabet = alphabet.toLowerCase();
@@ -99,7 +97,7 @@ public class WordPlay {
         FileResource fr = new FileResource();
         String message = fr.asString();
         String encrypted = encryptTwoKeys(
-                "hfs cpwewloj loks cd hoto kyg cyy", 14, 24);
+                "Can you imagine life WITHOUT the internet AND computers in your pocket?", 21, 2);
         System.out.println(encrypted);
 
     }

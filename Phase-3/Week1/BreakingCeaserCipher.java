@@ -84,9 +84,10 @@ class CeaserBreaker {
         int key2 = getKey(secondHalf);
         //System.out.println(key1+";"+key2);
 
-        CeaserCipher decrypter = new CeaserCipher();
-        String firstHalfDecrypted = decrypter.decrypt(firstHalf, key1);
-        String secondHalfDecrypted = decrypter.decrypt(secondHalf, key2);
+        CeaserCipher decrypter = new CeaserCipher(key1);
+        String firstHalfDecrypted = decrypter.decrypt(firstHalf);
+        decrypter = new CeaserCipher(key2);
+        String secondHalfDecrypted = decrypter.decrypt(secondHalf);
         for (int i = 0; i < message.length() / 2; i++) {
             decrypt.append(firstHalfDecrypted.charAt(i));
             decrypt.append(secondHalfDecrypted.charAt(i));
@@ -100,8 +101,8 @@ public class BreakingCeaserCipher {
 
     public static void main(String[] args) {
         WordLenghts test1 = new WordLenghts();
-        //test1.testCountWords();
-        CeaserCipher cc = new CeaserCipher();
+        test1.testCountWords();
+        CeaserCipher cc = new CeaserCipher(17);
         // cc.testCaesar();
         // FileResource file = new FileResource();
         CeaserBreaker test2 = new CeaserBreaker();
