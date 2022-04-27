@@ -97,15 +97,13 @@ public class WordPlay {
         FileResource fr = new FileResource();
         String message = fr.asString();
         String encrypted = encryptTwoKeys(
-                "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21);
+                "lots of words are here the the the a and and of", 8, 21);
         System.out.println(encrypted);
 
     }
 
     public static void main(String[] args) {
         WordPlay word = new WordPlay();
-        word.testVowel();
         word.testCaesarTwo();
-        word.testCaesar();
     }
 }

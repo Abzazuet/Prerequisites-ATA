@@ -49,9 +49,9 @@ class WordLenghts {
 }
 
 class CeaserBreaker {
+
     public String halfOfString(String message, int start) {
         StringBuilder halfString = new StringBuilder(message.length());
-        System.out.println(message.length());
         for (int i = start; i < message.length(); i = i + 2) {
             halfString.append(message.charAt(i));
         }
@@ -62,7 +62,6 @@ class CeaserBreaker {
         int[] letterFrequencies = countLetters(s);
         WordLenghts lengths = new WordLenghts();
         int key = lengths.indexOfMax(letterFrequencies);
-        System.out.println(key);
         return key;
     }
 
@@ -73,15 +72,25 @@ class CeaserBreaker {
                 letters[Character.getNumericValue(s.charAt(i)) - 10]++;
             }
         }
-        for (int i = 0; i < letters.length - 1; i++) {
-            System.out.println("Letter index: " + i + " Amount:" + letters[i]);
-        }
         return letters;
     }
 
     public String decryptTwoKeys(String message) {
         StringBuilder decrypt = new StringBuilder(message.length());
+        String firstHalf = halfOfString(message, 0);
+        String secondHalf = halfOfString(message, 1);
+        int key1 = getKey(firstHalf);
+        int key2 = getKey(secondHalf);
+        System.out.println(key1 +"+" + key2);
+        CeaserCipher decrypter = new CeaserCipher();
+        String firstHalfDecrypted = decrypter.decrypt(firstHalf, key1);
+        String secondHalfDecrypted = decrypter.decrypt(secondHalf, key2);
+        for (int i = 0; i < message.length() / 2; i++) {
+            decrypt.append(firstHalfDecrypted.charAt(i));
+            decrypt.append(secondHalfDecrypted.charAt(i));
 
+        }
+        System.out.println(decrypt);
         return decrypt.toString();
     }
 }
@@ -95,6 +104,6 @@ public class BreakingCeaserCipher {
         // cc.testCaesar();
         // FileResource file = new FileResource();
         CeaserBreaker test2 = new CeaserBreaker();
-        test2.getKey("Z NFLCU CFMV KF XF FLK NZKY PFL");
+        test2.decryptTwoKeys("tjbn jn ejzya imm pzzz opz opz opz v vvy vvy jn");
     }
 }
