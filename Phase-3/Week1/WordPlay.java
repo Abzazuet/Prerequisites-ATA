@@ -1,4 +1,4 @@
-import edu.duke.*;
+//import edu.duke.*;
 
 public class WordPlay {
     public boolean isVowel(char ch) {
@@ -48,8 +48,8 @@ public class WordPlay {
 
     public void testCaesar() {
         int key = 15;
-        FileResource fr = new FileResource();
-        String message = fr.asString();
+        //FileResource fr = new FileResource();
+        //String message = fr.asString();
         String encrypted = encrypt(
                 "Can you imagine life WITHOUT the internet AND computers in your pocket?", key);
         System.out.println(encrypted);
@@ -94,8 +94,8 @@ public class WordPlay {
     }
 
     public void testCaesarTwo() {
-        FileResource fr = new FileResource();
-        String message = fr.asString();
+        //FileResource fr = new FileResource();
+        //String message = fr.asString();
         String encrypted = encryptTwoKeys(
                 "Can you imagine life WITHOUT the internet AND computers in your pocket?", 21, 2);
         System.out.println(encrypted);

@@ -1,4 +1,3 @@
-import java.io.File;
 
 import edu.duke.*;
 
@@ -103,7 +102,7 @@ public class BreakingCeaserCipher {
         WordLenghts test1 = new WordLenghts();
         test1.testCountWords();
         CeaserCipher cc = new CeaserCipher(17);
-        // cc.testCaesar();
+         cc.testCaesar();
         // FileResource file = new FileResource();
         CeaserBreaker test2 = new CeaserBreaker();
         test2.decryptTwoKeys("aal uttx hm aal qtct fhljha pl wbdl. pvxvxlx!");
