@@ -39,7 +39,7 @@ public class CeaserCipher {
         String encrypted = encrypt(message, key);
         System.out.println(encrypted);
         //TO decrypt just sustract key from 26
-        String decrypted = decrypt(encrypted, key);
+        String decrypted = decrypt(message, key);
         System.out.println(decrypted);
 
     }

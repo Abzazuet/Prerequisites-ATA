@@ -59,6 +59,8 @@ public class WordPlay {
     }
 
     public String encryptTwoKeys(String input, int key1, int key2) {
+        key1 = 26-key1;
+        key2 = 26-key2;
         StringBuilder encrypted = new StringBuilder(input);
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerAlphabet = alphabet.toLowerCase();
@@ -97,7 +99,7 @@ public class WordPlay {
         FileResource fr = new FileResource();
         String message = fr.asString();
         String encrypted = encryptTwoKeys(
-                "lots of words are here the the the a and and of", 8, 21);
+                "hfs cpwewloj loks cd hoto kyg cyy", 14, 24);
         System.out.println(encrypted);
 
     }
