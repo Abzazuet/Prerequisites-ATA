@@ -56,7 +56,7 @@ public class MostFrequencies {
 
     public static void main(String[] args) {
         MostFrequencies test = new MostFrequencies();
-        //test.tester();
+        test.tester();
         CharactersInPlay characters = new CharactersInPlay();
         characters.tester();
     }
