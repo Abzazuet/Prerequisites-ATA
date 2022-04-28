@@ -16,6 +16,7 @@ public class MostFrequencies {
         myFreqs.clear();
         FileResource file = new FileResource();
         for (String s : file.words()) {
+            s=s.toLowerCase();
             int wordIndex = myWords.indexOf(s);
             if (wordIndex == -1) {
                 myWords.add(s);
@@ -50,6 +51,7 @@ public class MostFrequencies {
         }
         int max = findIndexOfMax();
         System.out.println("The word that occurs most often and its count are: "+myWords.get(max)+" "+myFreqs.get(max));
+        System.out.println(myWords.size());
     }
 
     public static void main(String[] args) {

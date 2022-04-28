@@ -66,7 +66,7 @@ public class CharactersInPlay {
         }
         System.out.println("The character that speaks the most often and its lines are: " + character.get(max) + " "
                 + characterLines.get(max));
-        charactersWithNumParts(20, 25);
+        charactersWithNumParts(10, 15);
 
     }
 }
