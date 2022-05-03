@@ -4,6 +4,7 @@
 - All objects have a default toString method which prints the mermory location
 - Web server logs follow the apache format recommendation
 
-## Parsing log files
+# Finding unique IP addresses
 
+- Distinguish users from one another
 - 
