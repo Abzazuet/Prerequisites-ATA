@@ -13,8 +13,13 @@ public class Tester
     
     public void testLogAnalyzer() {
         LogAnalyzer analyzer = new LogAnalyzer();
-        analyzer.readFile("./logs/weblog2_log");  
+        analyzer.readFile("./logs/short-test_log");  
         analyzer.printAll();
+        int ips = analyzer.countUniqueIPs();
+        System.out.println("The amount of unique IP address are: "+ips);
+        int code = 302;
+        System.out.println("Entries with number higher than: "+code);
+        analyzer.printAllHigherThanNum(code);
     }
     public static void main(String[] args) {
         Tester tests = new Tester();
