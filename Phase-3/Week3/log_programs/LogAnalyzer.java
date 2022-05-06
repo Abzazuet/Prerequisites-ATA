@@ -89,4 +89,45 @@ public class LogAnalyzer {
             System.out.println(le);
         }
     }
+
+    public HashMap<String, Integer> countVisitsPerIP() {
+        HashMap<String, Integer> counts = new HashMap<String, Integer>();
+        for (LogEntry le : records) {
+            String ip = le.getIpAddress();
+            if (!counts.containsKey(ip)) {
+                counts.put(ip, 1);
+            } else {
+                counts.put(ip, counts.get(ip) + 1);
+            }
+        }
+        return counts;
+    }
+
+    public int mostNumberVisitsByIP(){
+        return 0;
+    }
+    public  ArrayList<String> iPsMostVisits(){
+        ArrayList<String> ipAddresses = new ArrayList<String>();
+        
+        return ipAddresses;
+    }
+
+    public HashMap<String, ArrayList<String>> iPsForDays(){
+        HashMap<String, ArrayList<String>> day_ips = new HashMap<String, ArrayList<String>>();
+
+        return day_ips;
+    }
+
+    public String daysWitMostVisits(HashMap<String, ArrayList<String>> days){
+        String day = "";
+
+        return day;
+    }
+
+    public ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> days, String day){
+        ArrayList<String> ips = new ArrayList<String>();
+
+        return ips;
+    }
+
 }

@@ -26,8 +26,14 @@ public class Tester
         analyzer.uniqueIPVisitsOnDay(date);
         System.out.println(analyzer.countUniqueIPsInRange(200, 299));
     }
+    public void testCounts(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("./logs/weblog1_log");
+        HashMap<String, Integer> counts = la.countVisitsPerIP();
+        System.out.println(counts);
+    }
     public static void main(String[] args) {
         Tester tests = new Tester();
-        tests.testLogAnalyzer();
+        tests.testCounts();
     }
 }
