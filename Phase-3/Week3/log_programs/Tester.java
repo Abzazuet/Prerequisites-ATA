@@ -13,13 +13,18 @@ public class Tester
     
     public void testLogAnalyzer() {
         LogAnalyzer analyzer = new LogAnalyzer();
-        analyzer.readFile("./logs/short-test_log");  
-        analyzer.printAll();
+        analyzer.readFile("./logs/weblog1_log");  
+        //System.out.println("All entries: ");
+        //analyzer.printAll();
         int ips = analyzer.countUniqueIPs();
         System.out.println("The amount of unique IP address are: "+ips);
-        int code = 302;
+        int code = 400;
         System.out.println("Entries with number higher than: "+code);
         analyzer.printAllHigherThanNum(code);
+        String date = "Mar 17";
+        System.out.println("Visits on "+date);
+        analyzer.uniqueIPVisitsOnDay(date);
+        System.out.println(analyzer.countUniqueIPsInRange(200, 299));
     }
     public static void main(String[] args) {
         Tester tests = new Tester();

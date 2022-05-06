@@ -11,6 +11,7 @@ public class GladLib {
 	private ArrayList<String> timeList;
 	private ArrayList<String> verbList;
 	private ArrayList<String> fruitList;
+	private ArrayList <String> wordList;
 	
 	private Random myRandom;
 	
@@ -36,12 +37,22 @@ public class GladLib {
 		animalList = readIt(source+"/animal.txt");
 		timeList = readIt(source+"/timeframe.txt");
 		fruitList = readIt(source+"/fruit.txt");				
-		verbList = readIt(source+"/verb.txt");		
+		verbList = readIt(source+"/verb.txt");	
+		wordList = new ArrayList<String>();	
 	}
 	
 	private String randomFrom(ArrayList<String> source){
-		int index = myRandom.nextInt(source.size());
-		return source.get(index);
+		int index = 0;
+		boolean repeated = true;
+		String word = "";
+		while (repeated){
+			index = myRandom.nextInt(source.size());
+			word = source.get(index);
+			if (!wordList.contains(word)){
+				repeated = false;
+			}
+		}
+		return word;
 	}
 	
 	private String getSubstitute(String label) {
@@ -87,6 +98,7 @@ public class GladLib {
 		String prefix = w.substring(0,first);
 		String suffix = w.substring(last+1);
 		String sub = getSubstitute(w.substring(first+1,last));
+		wordList.add(sub);
 		return prefix+sub+suffix;
 	}
 	
@@ -138,7 +150,7 @@ public class GladLib {
 	
 	public void makeStory(){
 	    System.out.println("\n");
-		String story = fromTemplate("data/madtemplate2.txt");
+		String story = fromTemplate("data/madtemplate.txt");
 		printOut(story, 60);
 		System.out.println("");
 	}
