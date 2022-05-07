@@ -37,7 +37,6 @@ public class Tester
         la.readFile("./logs/weblog2_log");
         HashMap<String, ArrayList<String>> ipsDays = la.iPsForDays();
         ArrayList<String> daysWitMostVisits = la.iPsWithMostVisitsOnDay(ipsDays, "Sep 30");
-        ArrayList<String> ips =la.iPsMostVisits();
         System.out.println(daysWitMostVisits);
     }
 
