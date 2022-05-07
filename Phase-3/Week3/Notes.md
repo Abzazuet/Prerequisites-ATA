@@ -7,4 +7,4 @@
 # Finding unique IP addresses
 
 - Distinguish users from one another
-- 
+- When adding an ArrayList inside a HashMap, do not use clear, instead create a new Object every iteration

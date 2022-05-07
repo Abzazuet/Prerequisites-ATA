@@ -13,7 +13,7 @@ public class Tester
     
     public void testLogAnalyzer() {
         LogAnalyzer analyzer = new LogAnalyzer();
-        analyzer.readFile("./logs/weblog1_log");  
+        analyzer.readFile("./logs/weblog2_log");  
         //System.out.println("All entries: ");
         //analyzer.printAll();
         int ips = analyzer.countUniqueIPs();
@@ -24,16 +24,25 @@ public class Tester
         String date = "Mar 17";
         System.out.println("Visits on "+date);
         analyzer.uniqueIPVisitsOnDay(date);
-        System.out.println(analyzer.countUniqueIPsInRange(200, 299));
+        System.out.println(analyzer.countUniqueIPsInRange(400, 499));
     }
     public void testCounts(){
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("./logs/weblog1_log");
-        HashMap<String, Integer> counts = la.countVisitsPerIP();
+        la.readFile("./logs/weblog2_log");
+        int counts = la.mostNumberVisitsByIP();
         System.out.println(counts);
     }
+    public void testMostVisits(){
+        LogAnalyzer la = new LogAnalyzer(); 
+        la.readFile("./logs/weblog2_log");
+        HashMap<String, ArrayList<String>> ipsDays = la.iPsForDays();
+        ArrayList<String> daysWitMostVisits = la.iPsWithMostVisitsOnDay(ipsDays, "Sep 30");
+        ArrayList<String> ips =la.iPsMostVisits();
+        System.out.println(daysWitMostVisits);
+    }
+
     public static void main(String[] args) {
         Tester tests = new Tester();
-        tests.testCounts();
+        tests.testMostVisits();
     }
 }
