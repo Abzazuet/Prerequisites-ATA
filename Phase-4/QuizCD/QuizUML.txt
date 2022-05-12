@@ -1,0 +1,19 @@
+@startuml
+class Quiz {
+- questions : Question[]
++ administer() : int
++ getNumberOfQuestions() : int
++ addQuestion() : void
+}
+class Question {
+- text : string
+- correctAnswer : Answer
+- wrongAnswers : Answer[]
++ addWrongAnswer(answer : Answer) : void
+}
+class Answer{
+- text: String
+}
+Quiz "1" o-- "1*" Question
+Question "1" *-- "4*" Answer
+@enduml

@@ -1,0 +1,63 @@
+@startuml
+!includeurl https://s3-us-west-2.amazonaws.com/ata-curricula-material/assets/styles.iuml !ATA
+
+class Grader {
+  - students : Student[]
+  + administer(studentId : String, quiz : Quiz) : int
+  + getLetterGrade(studentId : String) : LetterGrade
+  + addStudent(student : Student) : void
+}
+
+class Student {
+  - id : String
+  - grades : Grade[]
+  + addGrade(grade : Grade) : void
+}
+
+class Grade {
+  - numQuestions : int
+  - numCorrect : int
+  
+  + getPercentScore() : double
+}
+
+enum LetterGrade<<enumeration>> {
+  + A : 90.0
+  + B : 80.0
+  + C : 70.0
+  + D : 60.0
+  + F : 0.0
+  
+  - LetterGrade(minPercent : double)
+  + getMinimumPercent() : double
+}
+
+Grader -- LetterGrade
+Grader "1" - "1..*" Quiz : administers
+Grader "1" o-- "1..*" Student
+Student "1" *-- "1..*" Grade
+
+class Quiz #lightsteelblue {
+  - questions : Question[]
+
+  + administer() : int
+  + getNumberOfQuestions() : int
+  + addQuestion() : void
+}
+
+class Question #lightsteelblue {
+  - text : String
+  - correctAnswer : Answer
+  - wrongAnswers : Answer[]
+  + addWrongAnswer(answer : Answer) : void
+}
+
+class Answer #lightsteelblue {
+  - text : String
+}
+
+Quiz "1" o-- "1..*" Question
+Question "1" *-- "4..*" Answer
+
+
+@enduml
