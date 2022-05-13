@@ -52,27 +52,33 @@ public class VigenereBreaker {
     public String breakForLanguage(String encrypted, HashSet<String> dictionary) {
         String message = "";
         int max = 0;
-        int [] keys = new int[10];
+        int[] keys = new int[10];
+        int wordsInDictionary = 0;
         for (int i = 1; i < 101; i++) {
-             keys = tryKeyLength(encrypted, i, 'e');
-            VigenereCipher cracker = new VigenereCipher(keys);
+            int[] tryKeys = tryKeyLength(encrypted, i, 'e');
+            VigenereCipher cracker = new VigenereCipher(tryKeys);
             String messageDecrypted = cracker.decrypt(encrypted);
-            int wordsInDictionary = countDictionary(messageDecrypted, dictionary);
-            if(wordsInDictionary>max){
+            wordsInDictionary = countDictionary(messageDecrypted, dictionary);
+            if (wordsInDictionary > max) {
                 max = wordsInDictionary;
                 message = messageDecrypted;
+                keys=tryKeys;
             }
         }
+        System.out.println(keys.length);
+        System.out.println(max);
         return message;
     }
 
     public void breakVigenere() {
         // WRITE YOUR CODE HERE
         FileResource file = new FileResource();
-        HashSet<String> dictionary = readDictionary(new FileResource("./dictionaries/English"));      
+        HashSet<String> dictionary = readDictionary(new FileResource("./dictionaries/English"));
         String message = file.asString();
         String messageDecrypted = breakForLanguage(message, dictionary);
-        System.out.print(messageDecrypted);
+        //System.out.print(messageDecrypted);
+        String lines[] = messageDecrypted.split("\\r?\\n");
+        System.out.println(lines[0]);
     }
 
     public static void main(String[] args) {
