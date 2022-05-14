@@ -33,6 +33,7 @@ public class RemoteControl {
         System.out.println("Please enter the directions for the Kiva Robot to take.");
         String directions = keyboardResource.getLine();
         System.out.println("Directions that you typed in: " + directions);
+        
     }
     public static void main(String[] args) {
         RemoteControl remote = new RemoteControl();
