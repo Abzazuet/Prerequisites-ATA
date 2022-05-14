@@ -24,9 +24,4 @@ public class KivaCommandTester {
         System.out.println(command);
         System.out.println(command.getDirectionKey());
     }
-    public static void main(String[] args) {
-        KivaCommandTester kiva = new KivaCommandTester();
-        kiva.testDrop();
-
-    }
 }
