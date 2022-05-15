@@ -1,41 +1,44 @@
 import edu.duke.Point;
 
 public class Kiva {
-    private boolean carry;
-    private boolean drop;
-    private Point location;
+    private boolean carryingPod;
+    private boolean succesfullyDropped;
+    private Point currentLocation;
     private FloorMap map;
     private FacingDirection directionFacing;
 
+    //Constructors
     public Kiva(FloorMap map) {
         this.map = map;
-        this.location = map.getInitialKivaLocation();
-        carry = false;
-        drop = false;
+        this.currentLocation = map.getInitialKivaLocation();
+        carryingPod = false;
+        succesfullyDropped = false;
         directionFacing = FacingDirection.UP;
     }
 
     public Kiva(FloorMap map, Point currentLocation) {
         Kiva kiva = new Kiva(map);
-        this.location = currentLocation;
+        this.currentLocation = currentLocation;
     }
 
+    //Getters
     public Point getCurrentLocation() {
-        return location;
+        return currentLocation;
     }
 
     public boolean isCarryingPod() {
-        return carry;
+        return carryingPod;
     }
 
     public boolean isSuccessfullyDropped() {
-        return drop;
+        return succesfullyDropped;
     }
 
     public FacingDirection getDirectionFacing() {
         return directionFacing;
     }
-
+    
+    //Methods
     public void move(KivaCommand direction) {
         if (direction == KivaCommand.FORWARD) {
             moveForward();
@@ -49,24 +52,24 @@ public class Kiva {
             drop();
         }
     }
-
+    //Setters
     private void moveForward() {
         int x = 0;
         int y = 0;
         if (directionFacing == FacingDirection.UP) {
-            x = location.getX() + FacingDirection.UP.getDelta().getX();
-            y = location.getY() + FacingDirection.UP.getDelta().getY();
+            x = currentLocation.getX() + FacingDirection.UP.getDelta().getX();
+            y = currentLocation.getY() + FacingDirection.UP.getDelta().getY();
         } else if (directionFacing == FacingDirection.LEFT) {
-            x = location.getX() + FacingDirection.LEFT.getDelta().getX();
-            y = location.getY() + FacingDirection.LEFT.getDelta().getY();
+            x = currentLocation.getX() + FacingDirection.LEFT.getDelta().getX();
+            y = currentLocation.getY() + FacingDirection.LEFT.getDelta().getY();
         } else if (directionFacing == FacingDirection.RIGHT) {
-            x = location.getX() + FacingDirection.RIGHT.getDelta().getX();
-            y = location.getY() + FacingDirection.RIGHT.getDelta().getY();
+            x = currentLocation.getX() + FacingDirection.RIGHT.getDelta().getX();
+            y = currentLocation.getY() + FacingDirection.RIGHT.getDelta().getY();
         } else if (directionFacing == FacingDirection.DOWN) {
-            x = location.getX() + FacingDirection.DOWN.getDelta().getX();
-            y = location.getY() + FacingDirection.DOWN.getDelta().getY();
+            x = currentLocation.getX() + FacingDirection.DOWN.getDelta().getX();
+            y = currentLocation.getY() + FacingDirection.DOWN.getDelta().getY();
         }
-        location = new Point(x, y);
+        currentLocation = new Point(x, y);
 
     }
 
@@ -95,12 +98,12 @@ public class Kiva {
     }
 
     private void take() {
-        carry = true;
-        drop = false;
+        carryingPod = true;
+        succesfullyDropped = false;
     }
 
     private void drop() {
-        carry = false;
-        drop = true;
+        carryingPod = false;
+        succesfullyDropped = true;
     }
 }
