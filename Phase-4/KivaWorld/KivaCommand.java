@@ -1,5 +1,9 @@
 public enum KivaCommand {
-    FORWARD('F'), TURN_RIGHT('R'), TURN_LEFT('L'), TAKE('T'), DROP('D');
+    FORWARD('F'),
+    TURN_RIGHT('R'), 
+    TURN_LEFT('L'), 
+    TAKE('T'), 
+    DROP('D');
 
     private char action;
 
