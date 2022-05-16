@@ -7,7 +7,7 @@ public class Kiva {
     private FloorMap map;
     private FacingDirection directionFacing;
 
-    //Constructors
+    // Constructors
     public Kiva(FloorMap map) {
         this.map = map;
         this.currentLocation = map.getInitialKivaLocation();
@@ -21,7 +21,7 @@ public class Kiva {
         this.currentLocation = currentLocation;
     }
 
-    //Getters
+    // Getters
     public Point getCurrentLocation() {
         return currentLocation;
     }
@@ -37,9 +37,48 @@ public class Kiva {
     public FacingDirection getDirectionFacing() {
         return directionFacing;
     }
-    
-    //Methods
+
+    private boolean isPositionValid(int x, int y) {
+        int maxCol = map.getMaxColNum();
+        int maxRow = map.getMaxRowNum();
+        int minRow = map.getMinRowNum();
+        int minCol = map.getMinColNum();
+
+        if (minRow < y && y < maxRow && minCol < x && x < maxCol) {
+            return true;
+        }
+        return false;
+    }
+
+    private FloorMapObject objectAtPosition(int x, int y) {
+        FloorMapObject object = map.getObjectAtLocation(new Point(x, y));
+        return object;
+    }
+
+    private boolean isPositionObstacle(int x, int y) {
+        if (objectAtPosition(x, y) == FloorMapObject.OBSTACLE) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isPositionPod(int x, int y) {
+        if (objectAtPosition(x, y) == FloorMapObject.POD) {
+            return true;
+        }
+        return false;
+    }
+
+    // Methods
+    private boolean isPositionDrop(int x, int y) {
+        if (objectAtPosition(x, y) == FloorMapObject.DROP_ZONE) {
+            return true;
+        }
+        return false;
+    }
+
     public void move(KivaCommand direction) {
+
         if (direction == KivaCommand.FORWARD) {
             moveForward();
         } else if (direction == KivaCommand.TURN_LEFT) {
@@ -52,7 +91,8 @@ public class Kiva {
             drop();
         }
     }
-    //Setters
+
+    // Setters
     private void moveForward() {
         int x = 0;
         int y = 0;
@@ -69,7 +109,20 @@ public class Kiva {
             x = currentLocation.getX() + FacingDirection.DOWN.getDelta().getX();
             y = currentLocation.getY() + FacingDirection.DOWN.getDelta().getY();
         }
-        currentLocation = new Point(x, y);
+        if (isPositionValid(x, y)) {
+            if (isPositionObstacle(x, y)) {
+                throw new IllegalMoveException(String.format("There is a %s at location %s", map.getObjectAtLocation(new Point(x, y)), new Point(x, y)));
+            } else {
+                if (isPositionPod(x, y) && isCarryingPod()) {
+                    throw new IllegalMoveException("The robot is carrying a POD, this would cause a collision");
+                } else {
+                    currentLocation = new Point(x, y);
+                }
+
+            }
+        } else {
+            throw new IllegalMoveException("The requested movement takes the robot out of boundaries");
+        }
 
     }
 
@@ -98,12 +151,30 @@ public class Kiva {
     }
 
     private void take() {
-        carryingPod = true;
-        succesfullyDropped = false;
+        if (isPositionPod(currentLocation.getX(), currentLocation.getY())) {
+            carryingPod = true;
+            succesfullyDropped = false;
+        } else {
+            throw new NoPodException(String.format(
+                "Can't take: location %s is %s, not POD!", currentLocation, map.getObjectAtLocation(currentLocation))
+                );
+        }
+
     }
 
     private void drop() {
-        carryingPod = false;
-        succesfullyDropped = true;
+        if (isPositionDrop(currentLocation.getX(), currentLocation.getY())) {
+            if (!carryingPod) {
+                throw new IllegalMoveException("Robot is not carrying a pod");
+            } else {
+                carryingPod = false;
+                succesfullyDropped = true;
+            }
+        } else {
+            throw new IllegalDropZoneException(String.format(
+                "Can't DROP: location %s is %s, not DROP!", currentLocation, map.getObjectAtLocation(currentLocation))
+                );
+        }
+
     }
 }
