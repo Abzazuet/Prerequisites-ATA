@@ -17,7 +17,7 @@ public class Kiva {
     }
 
     public Kiva(FloorMap map, Point currentLocation) {
-        Kiva kiva = new Kiva(map);
+        new Kiva(map);
         this.currentLocation = currentLocation;
     }
 
