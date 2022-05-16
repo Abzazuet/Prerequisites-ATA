@@ -1,4 +1,5 @@
 import edu.duke.FileResource;
+import edu.duke.Point;
 
 /**
  * This is the class that controls Kiva's actions. Implement the <code>run()</code>
@@ -50,16 +51,64 @@ public class RemoteControl {
     for (KivaCommand command : commands) {
       kiva.move(command);
     }
-    if (!kiva.isSuccessfullyDropped() || commands[commands.length-1]!=KivaCommand.DROP) {
+    if (
+      !kiva.isSuccessfullyDropped() ||
+      commands[commands.length - 1] != KivaCommand.DROP
+    ) {
       System.out.println(
         "I'm sorry, the kiva robot did not pick up the pod and then drop it off the right place"
-      );
-    }
-    else{
-        System.out.println(
+      
+        );
+        mapRecreation(kiva, floorMap);
+
+    } else {
+      System.out.println(
         "The kiva robot successfully picked up the pod and then dropped it off. Thank you"
       );
     }
+  }
+
+  public FloorMap mapRecreation(Kiva kiva, FloorMap map) {
+    int columns = map.getMaxColNum();
+    int rows = map.getMaxRowNum();
+    Point kivaLocation = kiva.getCurrentLocation();
+    Point pod = map.getPodLocation();
+    Point dropZone = map.getDropZoneLocation();
+    System.out.println(String.format("Last kiva location: %s", kivaLocation));
+    System.out.println(String.format("Pod location: %s", pod));
+    System.out.println(String.format("Drop zone: %s", dropZone));
+    StringBuilder newMap = new StringBuilder();
+    
+    for (int i = 0; i <= rows; i++) {
+      for (int j = 0; j <= columns; j++) {
+        Point current = new Point(j, i);
+        FloorMapObject object = map.getObjectAtLocation(current);
+        if (
+          current.getX() == kivaLocation.getX() &&
+          current.getY() == kivaLocation.getY()
+        ) {
+          newMap.append('K');
+        } else {
+          if (i == 0 || i == rows) {
+            newMap.append('-');
+          } else {
+            if (object == FloorMapObject.OBSTACLE) {
+              if (j == 0 || j == columns) {
+                newMap.append('|');
+              } else {
+                newMap.append('*');
+              }
+            } else {
+              newMap.append(object.toChar());
+            }
+          }
+        }
+      }
+      newMap.append("\n");
+    }
+    System.out.println(newMap.toString());
+
+    return new FloorMap(newMap.toString());
   }
 
   /**
