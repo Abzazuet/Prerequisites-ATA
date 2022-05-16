@@ -1,5 +1,4 @@
 import edu.duke.FileResource;
-import java.util.Arrays;
 
 /**
  * This is the class that controls Kiva's actions. Implement the <code>run()</code>
