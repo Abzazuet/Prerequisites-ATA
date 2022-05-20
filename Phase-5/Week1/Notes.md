@@ -15,5 +15,5 @@
 - Create location objects according to API
 - Apacha 2.0 licence
   - Allows for reuse and adaptation
+- https://developer.android.com/reference/android/location/Location.html link for documentation
 
-- 
