@@ -20,4 +20,12 @@ public class MatchAllFilter implements Filter {
     }
     return true;
   }
+  public String getName(){
+    StringBuilder names = new StringBuilder();
+    for(Filter f : filters){
+      names.append(f.getName());
+      names.append(" ");
+    }
+    return names.toString();
+  }
 }

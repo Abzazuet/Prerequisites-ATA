@@ -36,11 +36,12 @@ public class EarthQuakeClient2 {
         */
     Filter fDistance = new DistanceFilter(
       new Location(35.42, 139.43),
-      100000000
+      100000000,
+      "Distance"
     );
     ArrayList<QuakeEntry> f1 = filter(list, fDistance);
     System.out.println(f1);
-    Filter fPhrase = new PhraseFilter("end", "Japan");
+    Filter fPhrase = new PhraseFilter("end", "Japan", "Phrase");
     ArrayList<QuakeEntry> f2 = filter(f1, fPhrase);
 
     /*
@@ -81,16 +82,18 @@ public class EarthQuakeClient2 {
     ArrayList<QuakeEntry> list = parser.read(source);
     System.out.println("read data for " + list.size() + " quakes");
     MatchAllFilter maf = new MatchAllFilter();
-    DepthFilter fDepth = new DepthFilter(-100000.0, -10000.0);
-    MagnitudeFilter fMagnitude = new MagnitudeFilter(0.0, 2.0);
-    PhraseFilter fPhrase = new PhraseFilter("any", "a");
+    DepthFilter fDepth = new DepthFilter(-100000.0, -10000.0, "Depth");
+    MagnitudeFilter fMagnitude = new MagnitudeFilter(0.0, 2.0, "Magnitude");
+    PhraseFilter fPhrase = new PhraseFilter("any", "a", "Phrase");
     maf.addFilter(fDepth);
     maf.addFilter(fMagnitude);
     maf.addFilter(fPhrase);
+    String filterNames = maf.getName();
     ArrayList<QuakeEntry> f2 = filter(list, maf);
     for (QuakeEntry qe : f2) {
       System.out.println(qe);
     }
+    System.out.println(String.format("Filters used are: %s", filterNames));
   }
 
   public void testMatchAllFilter2() {
@@ -102,10 +105,11 @@ public class EarthQuakeClient2 {
     MatchAllFilter maf = new MatchAllFilter();
     DistanceFilter fDistance = new DistanceFilter(
       new Location(36.1314, -95.9372),
-      10000000.0
+      10000000.0,
+      "Distance"
     );
-    MagnitudeFilter fMagnitude = new MagnitudeFilter(0.0, 3.0);
-    PhraseFilter fPhrase = new PhraseFilter("any", "Ca");
+    MagnitudeFilter fMagnitude = new MagnitudeFilter(0.0, 3.0, "Magnitude");
+    PhraseFilter fPhrase = new PhraseFilter("any", "Ca", "Phrase");
     maf.addFilter(fDistance);
     maf.addFilter(fMagnitude);
     maf.addFilter(fPhrase);

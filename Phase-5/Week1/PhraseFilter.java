@@ -2,10 +2,13 @@ public class PhraseFilter implements Filter {
 
   private String lookAt;
   private String phrase;
+  private String name;
 
-  public PhraseFilter(String lookAt, String phrase) {
+  public PhraseFilter(String lookAt, String phrase, String name) {
     this.lookAt = lookAt;
     this.phrase = phrase;
+    this.name = name;
+
   }
 
   public boolean satisfies(QuakeEntry qe) {
@@ -21,4 +24,7 @@ public class PhraseFilter implements Filter {
     }
     return false;
   }
+  public String getName(){
+    return this.name;
+}
 }

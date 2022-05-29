@@ -2,10 +2,12 @@ public class MagnitudeFilter implements Filter {
 
   private double minMag;
   private double maxMag;
+  private String name;
 
-  public MagnitudeFilter(double minMag, double maxMag) {
+  public MagnitudeFilter(double minMag, double maxMag, String name) {
     this.minMag = minMag;
     this.maxMag = maxMag;
+    this.name = name;
   }
 
   public boolean satisfies(QuakeEntry qe) {
@@ -13,5 +15,9 @@ public class MagnitudeFilter implements Filter {
       return true;
     }
     return false;
+  }
+
+  public String getName() {
+    return this.name;
   }
 }
