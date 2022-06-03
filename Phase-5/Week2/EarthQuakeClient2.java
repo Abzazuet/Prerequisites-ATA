@@ -121,8 +121,8 @@ public class EarthQuakeClient2 {
     EarthQuakeParser parser = new EarthQuakeParser();
     String source = "./nov20quakedata.atom";
     ArrayList<QuakeEntry> list = parser.read(source);
-    QuakeSort test = new QuakeSort();
-    test.sortByMagnitude(list);
+    QuakeSortInPlace test = new QuakeSortInPlace();
+    test.sortByLargestDepth(list);
     for (QuakeEntry q:list){
       System.out.println(q);
     }
