@@ -91,8 +91,11 @@ public class QuakeSortInPlace {
     }
   }
 
-  public void onePassBubbleSort(ArrayList<QuakeEntry> quakeData, int numSorted) {
-    for (int i = 0; i < quakeData.size() - numSorted-1; i++) {
+  public void onePassBubbleSort(
+    ArrayList<QuakeEntry> quakeData,
+    int numSorted
+  ) {
+    for (int i = 0; i < quakeData.size() - numSorted - 1; i++) {
       QuakeEntry current = quakeData.get(i);
       QuakeEntry side = quakeData.get(i + 1);
       if (side.getMagnitude() < current.getMagnitude()) {
