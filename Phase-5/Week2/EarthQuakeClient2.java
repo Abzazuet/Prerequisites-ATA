@@ -123,8 +123,7 @@ public class EarthQuakeClient2 {
     String source = "./earthQuakeDataDec6sample2.atom";
     ArrayList<QuakeEntry> list = parser.read(source);
     QuakeSortInPlace test = new QuakeSortInPlace();
-    test.sortByMagnitudeWithBubbleSort(list);
-    System.out.println(list.size());
+    test.sortByMagnitudeWithBubbleSortWithCheck(list);
     for (QuakeEntry q : list) {
       System.out.println(q);
     }
