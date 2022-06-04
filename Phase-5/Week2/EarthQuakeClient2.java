@@ -117,14 +117,21 @@ public class EarthQuakeClient2 {
       System.out.println(qe);
     }
   }
-  public void testSort(){
+
+  public void testSort() {
     EarthQuakeParser parser = new EarthQuakeParser();
-    String source = "./nov20quakedata.atom";
+    String source = "./earthQuakeDataDec6sample1.atom";
     ArrayList<QuakeEntry> list = parser.read(source);
     QuakeSortInPlace test = new QuakeSortInPlace();
-    test.sortByLargestDepth(list);
-    for (QuakeEntry q:list){
+    test.sortByMagnitudeWithBubbleSort(list);
+    System.out.println(list.size());
+    for (QuakeEntry q : list) {
       System.out.println(q);
     }
+  }
+
+  public static void main(String[] args) {
+    EarthQuakeClient2 test = new EarthQuakeClient2();
+    test.testSort();
   }
 }

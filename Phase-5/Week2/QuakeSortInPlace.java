@@ -22,14 +22,15 @@ public class QuakeSortInPlace {
     }
     return maxIdx;
   }
-  public void sortByLargestDepth(ArrayList <QuakeEntry> in){
-      for (int i=0; i<in.size(); i++){
-          int maxIdx = getLargestDepth(in, i);
-          QuakeEntry qi = in.get(i);
-          QuakeEntry qMax = in.get(maxIdx);
-          in.set(i, qMax);
-          in.set(maxIdx, qi);
-      }
+
+  public void sortByLargestDepth(ArrayList<QuakeEntry> in) {
+    for (int i = 0; i < in.size(); i++) {
+      int maxIdx = getLargestDepth(in, i);
+      QuakeEntry qi = in.get(i);
+      QuakeEntry qMax = in.get(maxIdx);
+      in.set(i, qMax);
+      in.set(maxIdx, qi);
+    }
   }
 
   public int getSmallestMagnitude(ArrayList<QuakeEntry> quakes, int from) {
@@ -87,6 +88,31 @@ public class QuakeSortInPlace {
         qe.getMagnitude(),
         qe.getInfo()
       );
+    }
+  }
+
+  public void onePassBubbleSort(ArrayList<QuakeEntry> quakeData) {
+    for (int i = 0; i < quakeData.size() - 1; i++) {
+      QuakeEntry current = quakeData.get(i);
+      QuakeEntry side = quakeData.get(i + 1);
+      if (side.getMagnitude() < current.getMagnitude()) {
+        quakeData.set(i, side);
+        quakeData.set(i + 1, current);
+        if (i > 1) {
+          QuakeEntry past = quakeData.get(i - 1);
+          current = quakeData.get(i);
+          if (past.getMagnitude() > current.getMagnitude()) {
+            quakeData.set(i, past);
+            quakeData.set(i - 1, current);
+          }
+        }
+      }
+    }
+  }
+
+  public void sortByMagnitudeWithBubbleSort(ArrayList<QuakeEntry> quakeData) {
+    for (int i = 0; i < quakeData.size(); i++) {
+      onePassBubbleSort(quakeData);
     }
   }
 }

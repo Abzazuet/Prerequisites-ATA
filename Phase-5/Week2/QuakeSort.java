@@ -21,4 +21,5 @@ public class QuakeSort {
       in.set(minIndex, qi);//swap the quake entry of the current position with the index of the smallest
     }
   }
+  
 }
