@@ -67,4 +67,4 @@ public interface Comparator <T>{
 Collections.sort(list, new MagnitudeComparator());
 ```
 
-- 
+-
