@@ -95,3 +95,28 @@ Filter f2 = new DepthFilter(-32160, -1800);//Java know that f2 should call the .
 ```
 
 - It figures out what method to call
+
+## Match All
+
+- A class to add multiple filters without having to write every single one of them
+- Great example of composability
+
+```java
+public class MatchAllFilter implements Filter {
+  private ArrayList<Filter> filters; //Comosability
+  public MatchAllFilter(){
+    filters = new ArrayList<Filter>();
+  }
+  public void addFilter(Filter f){
+    filters.add(f);
+  }
+  public boolean satisfies (QuakeEntry qe){
+    for(Filter f: filters){
+      if(!f.satisfies(qe)){//Iterates through the filter and dynamically calls the satisifies method of each filter and if any of them is false it returns false
+        return false;
+      }
+    }
+    return true;
+  }
+}
+```

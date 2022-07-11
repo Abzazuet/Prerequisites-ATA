@@ -25,31 +25,31 @@ public class EarthQuakeClient2 {
     EarthQuakeParser parser = new EarthQuakeParser();
     //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
     String source = "./data/nov20quakedata.atom";
+    System.out.println(source);
     ArrayList<QuakeEntry> list = parser.read(source);
     System.out.println("read data for " + list.size() + " quakes");
-
     /*
-        Filter fMagnitude = new MagnitudeFilter(4.0, 5.0); 
-        ArrayList<QuakeEntry> f1  = filter(list, fMagnitude);
-        Filter fDepth = new DepthFilter(-35000.0, -12000.0); 
-        ArrayList<QuakeEntry> f2  = filter(f1, fDepth);
-        */
+    Filter fMagnitude = new MagnitudeFilter(4.0, 5.0,"Magnitude");
+    ArrayList<QuakeEntry> f1 = filter(list, fMagnitude);
+    Filter fDepth = new DepthFilter(-35000.0, -12000.0, "Depth");
+    ArrayList<QuakeEntry> f2 = filter(f1, fDepth);
+    */
+
     Filter fDistance = new DistanceFilter(
       new Location(35.42, 139.43),
-      100000000,
+      10000000.0,
       "Distance"
     );
     ArrayList<QuakeEntry> f1 = filter(list, fDistance);
-    System.out.println(f1);
     Filter fPhrase = new PhraseFilter("end", "Japan", "Phrase");
     ArrayList<QuakeEntry> f2 = filter(f1, fPhrase);
 
-    /*
-
-        */
     for (QuakeEntry qe : f2) {
       System.out.println(qe);
     }
+    System.out.println(list.size());
+
+    System.out.println(f2.size());
   }
 
   public void createCSV() {
@@ -93,6 +93,7 @@ public class EarthQuakeClient2 {
     for (QuakeEntry qe : f2) {
       System.out.println(qe);
     }
+    System.out.println(f2.size());
     System.out.println(String.format("Filters used are: %s", filterNames));
   }
 
@@ -114,6 +115,7 @@ public class EarthQuakeClient2 {
     maf.addFilter(fMagnitude);
     maf.addFilter(fPhrase);
     ArrayList<QuakeEntry> f2 = filter(list, maf);
+    System.out.println(f2.size());
     for (QuakeEntry qe : f2) {
       System.out.println(qe);
     }
