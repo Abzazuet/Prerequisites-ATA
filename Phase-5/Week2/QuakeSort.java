@@ -2,24 +2,43 @@ import java.util.ArrayList;
 
 public class QuakeSort {
 
-  public int getSmallestMagnitude(ArrayList<QuakeEntry> quakes, int from) {
-    int minIdx = from;
-    for (int i = from + 1; i < quakes.size(); i++) {
-      if (quakes.get(i).getMagnitude() < quakes.get(minIdx).getMagnitude()) {
-        minIdx = i;
+  public QuakeEntry getSmallestMagnitude(ArrayList<QuakeEntry> quakes) {
+    QuakeEntry min = quakes.get(0);
+    for(QuakeEntry q: quakes){
+      if(q.getMagnitude() < min.getMagnitude()){
+        min = q;
       }
     }
-    return minIdx;
+    return min;
   }
 
-  public void sortByMagnitude(ArrayList<QuakeEntry> in) {
-    for (int i = 0; i < in.size(); i++) {
-      int minIndex = getSmallestMagnitude(in, i); //position of smallest from i to the end of the array
-      QuakeEntry qi = in.get(i);// quakeEntry in the current positon
-      QuakeEntry qMin = in.get(minIndex); // quakeENtry of the smallest magnitude
-      in.set(i, qMin);// put smallest entry in current position
-      in.set(minIndex, qi);//swap the quake entry of the current position with the index of the smallest
+  public ArrayList<QuakeEntry> sortByMagnitude(ArrayList<QuakeEntry> in) {
+    //Start a new array
+    ArrayList<QuakeEntry> out = new ArrayList<QuakeEntry>();
+    //As long as in is not empty
+    while(!in.isEmpty()){
+      //Find smallest element in in (element)
+      QuakeEntry minElement = getSmallestMagnitude(in);
+      //Remove minElement from in
+      in.remove(minElement);
+      //Add element to out
+      out.add(minElement);
     }
+    //Return out 
+    return out;
+  }
+  public void testSort(){
+    EarthQuakeParser parser = new EarthQuakeParser();
+    String source = "./nov20quakedata.atom";
+    ArrayList<QuakeEntry> list = parser.read(source);
+    list = sortByMagnitude(list);
+    for (QuakeEntry qe : list){
+      System.out.println(qe);
+    }
+  }
+  public static void main(String[] args) {
+    QuakeSort sort = new QuakeSort();
+    sort.testSort();
   }
   
 }

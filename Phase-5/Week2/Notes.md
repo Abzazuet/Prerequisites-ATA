@@ -3,10 +3,15 @@
 - Makes problem more efficient
 - Easier to analyze
 
+## Selection Sort
+
+- Find the smallest item of the array, add it to another array and delete from the current array.
+
 ## Sort in place
 
 - Sort the input without generating a different array
 - Swap places with index
+- Reorders the input array
 
 ## Efficency
 
