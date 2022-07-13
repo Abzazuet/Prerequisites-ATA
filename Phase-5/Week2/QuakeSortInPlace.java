@@ -24,7 +24,7 @@ public class QuakeSortInPlace {
   }
 
   public void sortByLargestDepth(ArrayList<QuakeEntry> in) {
-    for (int i = 0; i < in.size(); i++) {
+    for (int i = 0; i < in.size() ; i++) {
       int maxIdx = getLargestDepth(in, i);
       QuakeEntry qi = in.get(i);
       QuakeEntry qMax = in.get(maxIdx);
@@ -56,16 +56,20 @@ public class QuakeSortInPlace {
   public void testSort() {
     EarthQuakeParser parser = new EarthQuakeParser();
     //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-    String source = "data/nov20quakedatasmall.atom";
+    String source = "earthQuakeDataDec6sample1.atom";
     //String source = "data/nov20quakedata.atom";
     ArrayList<QuakeEntry> list = parser.read(source);
 
     System.out.println("read data for " + list.size() + " quakes");
     //sortByMagnitude(list);
-    sortByLargestDepth(list);
+
+    sortByMagnitudeWithBubbleSortWithCheck(list);
+    /* 
     for (QuakeEntry qe : list) {
       System.out.println(qe);
     }
+    */
+    
   }
 
   public void createCSV() {
@@ -124,7 +128,7 @@ public class QuakeSortInPlace {
 
   public void sortByMagnitudeWithBubbleSortWithCheck(ArrayList<QuakeEntry> in) {
     int i;
-    for (i=0; i < in.size(); i++) {
+    for (i = 0; i < in.size(); i++) {
       if (checkInSortedOrder(in)) {
         break;
       } else {
@@ -132,6 +136,26 @@ public class QuakeSortInPlace {
       }
     }
     System.out.println(i);
+  }
 
+  public void sortByMagnitudeWithCheck(ArrayList<QuakeEntry> in){
+    int i;
+    for (i=0; i<in.size(); i++){
+      if(checkInSortedOrder(in)){
+        break;
+      }
+      else{
+          int minIdx = getSmallestMagnitude(in, i);
+          QuakeEntry qi = in.get(i);
+          QuakeEntry qmin = in.get(minIdx);
+          in.set(i, qmin);
+          in.set(minIdx, qi);
+      }
+    }
+    System.out.println(i);
+  }
+  public static void main(String[] args) {
+    QuakeSortInPlace tests = new QuakeSortInPlace();
+    tests.testSort();
   }
 }

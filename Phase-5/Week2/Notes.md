@@ -3,9 +3,16 @@
 - Makes problem more efficient
 - Easier to analyze
 
+## Categories
+
+- Selection -> SortTimings.java
+- Bubble
+- Merge
+
 ## Selection Sort
 
 - Find the smallest item of the array, add it to another array and delete from the current array.
+- Selects the smallest and adds it to the end of the output
 
 ## Sort in place
 
@@ -72,4 +79,8 @@ public interface Comparator <T>{
 Collections.sort(list, new MagnitudeComparator());
 ```
 
--
+## Interafes
+
+### Comparable 
+- 
+### Comparator
